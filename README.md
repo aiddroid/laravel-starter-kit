@@ -6,6 +6,8 @@ It was created as a fast start for building an advanced sites based on Laravel f
 
 It focused on covers typical use cases for a new laravel project and will help you to save time for doing the same work in every project
 
+## [Screenshots](https://aiddroid.com/screenshots-of-laravel-starter-kit/)
+
 ## Before you start
 Please, consider helping project via [contributions](https://github.com/aiddroid/laravel-starter-kit/issues). 
 
