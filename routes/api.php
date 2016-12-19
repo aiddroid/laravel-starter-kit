@@ -18,7 +18,7 @@ Route::get('/user', function (Request $request) {
 })->middleware('auth:api');
 
 
-Route::group(['namespace' => 'Api'], function (){
+Route::group(['namespace' => 'Api', 'middleware' => ['cors']], function (){
 
     Route::any('/user/auth', 'UserController@auth')->name('api.user.auth');
     Route::any('/user/info', 'UserController@info')->name('api.user.info');
