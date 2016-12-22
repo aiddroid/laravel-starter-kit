@@ -2,8 +2,8 @@
 
 namespace App\Providers;
 
-use Illuminate\Support\Facades\Route;
 use Illuminate\Foundation\Support\Providers\RouteServiceProvider as ServiceProvider;
+use Illuminate\Support\Facades\Route;
 
 class RouteServiceProvider extends ServiceProvider
 {
@@ -39,7 +39,8 @@ class RouteServiceProvider extends ServiceProvider
 
         $this->mapWebRoutes();
 
-        //
+        //oauth api
+        $this->mapOApiRoutes();
     }
 
     /**
@@ -74,6 +75,24 @@ class RouteServiceProvider extends ServiceProvider
             'prefix' => 'api',
         ], function ($router) {
             require base_path('routes/api.php');
+        });
+    }
+
+    /**
+     * Define the "oapi" routes for the application.
+     *
+     * These routes are typically stateless.
+     *
+     * @return void
+     */
+    protected function mapOApiRoutes()
+    {
+        Route::group([
+            'middleware' => 'oapi',
+            'namespace' => $this->namespace,
+            'prefix' => 'oapi',
+        ], function ($router) {
+            require base_path('routes/oapi.php');
         });
     }
 }

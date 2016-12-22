@@ -10,7 +10,7 @@
                 </div>
 
                 <div class="panel-body">
-                    You are logged in! Go go <a href="{{ route('backend.article.index') }}">dashboard &raquo;</a>
+                    <p>You are logged in! Go go <a href="{{ route('backend.article.index') }}">dashboard &raquo;</a></p>
                 </div>
             </div>
         </div>
