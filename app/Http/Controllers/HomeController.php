@@ -27,6 +27,10 @@ class HomeController extends Controller
         return view('home');
     }
 
+    /**
+     * Redirect to oauth page
+     * @return \Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
+     */
     public function redirect()
     {
         $params = [
@@ -40,9 +44,15 @@ class HomeController extends Controller
         return redirect($authUrl);
     }
 
+    /**
+     * OAuth success, get access token from code
+     * @param Request $request
+     * @return array
+     */
     public function callback(Request $request)
     {
         $httpClient = new Client();
+        //get access token
         $response1 = $httpClient->post(url('/oauth/token'), [
             'form_params' => [
                 'grant_type' => 'authorization_code',
@@ -55,6 +65,7 @@ class HomeController extends Controller
 
         $result1 = json_decode($response1->getBody()->getContents(), true);
 
+        //get user info by access token
         $response2 = $httpClient->request('GET', url('/oapi/user/info'), [
             'headers' => [
                 'Accept' => 'application/json',
