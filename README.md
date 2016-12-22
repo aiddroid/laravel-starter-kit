@@ -6,6 +6,8 @@ It was created as a fast start for building an advanced sites based on Laravel f
 
 It focused on covers typical use cases for a new laravel project and will help you to save time for doing the same work in every project
 
+## [Screenshots](https://aiddroid.com/screenshots-of-laravel-starter-kit/)
+
 ## Before you start
 Please, consider helping project via [contributions](https://github.com/aiddroid/laravel-starter-kit/issues). 
 
@@ -24,6 +26,9 @@ Please, consider helping project via [contributions](https://github.com/aiddroid
 - Image upload and image manipulation [Intervention Image](http://image.intervention.io/)
 - dotenv support
 - Nginx config example
+- JWT auth
+- OAuth
+
 
 ## INSTALLATION
 1.clone the code from github
@@ -111,6 +116,17 @@ server {
 account:admin@gmail.com
 password:123456
 ```
+
+8.JWT api
+- get auth token [/api/user/auth](http://laravel-starter-kit.dev/api/user/auth?email=admin@gmail.com&password=123456)
+- get info by token [/api/user/info](http://laravel-starter-kit.dev/api/user/info?token=yourtokenhere)
+
+9.OAuth
+```
+php artisan passport:install
+```
+- oauth client management [/backend/oauth/index](http://laravel-starter-kit.dev/backend/oauth/index)
+- redirect to oauth page [/home/redirect](http://laravel-starter-kit.dev/home/redirect)
 
 
 ##How to contribute?

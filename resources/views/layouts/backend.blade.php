@@ -276,7 +276,7 @@ desired effect
                 <li class="header">HEADER</li>
                 <li class="treeview">
                     <a href="#">
-                        <i class="fa fa-link"></i>
+                        <i class="fa fa-book"></i>
                         <span>Content</span>
                         <span class="pull-right-container">
                             <i class="fa fa-angle-left pull-right"></i>
@@ -288,7 +288,8 @@ desired effect
                     </ul>
                 </li>
                 <!-- Optionally, you can add icons to the links -->
-                <li><a href="{{ route('backend.user.index') }}"><i class="fa fa-link"></i> <span>Users</span></a></li>
+                <li><a href="{{ route('backend.user.index') }}"><i class="fa fa-users"></i> <span>Users</span></a></li>
+                <li><a href="{{ route('backend.oauth.index') }}"><i class="fa fa-lock"></i> <span>OAuth</span></a></li>
                 {{--<li class="active"><a href="#"><i class="fa fa-link"></i> <span>Another Link</span></a></li>--}}
             </ul>
             <!-- /.sidebar-menu -->
@@ -412,6 +413,9 @@ desired effect
 
 <!-- REQUIRED JS SCRIPTS -->
 
+<!-- Scripts -->
+<script src="/js/backend.app.js"></script>
+
 <!-- jQuery 2.2.3 -->
 <script src="{{ asset('AdminLTE-2.3.7/plugins/jQuery/jquery-2.2.3.min.js') }}"></script>
 <!-- Bootstrap 3.3.6 -->
@@ -423,8 +427,6 @@ desired effect
      Both of these plugins are recommended to enhance the
      user experience. Slimscroll is required when using the
      fixed layout. -->
-<!-- Scripts -->
-{{--<script src="/js/app.js"></script>--}}
 @yield('after-scripts')
 </body>
 </html>

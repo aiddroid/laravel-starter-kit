@@ -18,6 +18,10 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+//oauth
+Route::get('/home/redirect', 'HomeController@redirect')->name('home.redirect');
+Route::get('/home/callback', 'HomeController@callback')->name('home.callback');
+
 Route::get('/article/index', 'ArticleController@index')->name('article.index');
 Route::get('/article/view/{id}', 'ArticleController@view')->name('article.view');
 
@@ -46,4 +50,5 @@ Route::group(['prefix' => 'backend', 'namespace' => 'Backend'], function () {
 
     //user
     Route::get('/user/index', 'UserController@index')->name('backend.user.index');
+    Route::get('/oauth/index', 'OAuthController@index')->name('backend.oauth.index');
 });
