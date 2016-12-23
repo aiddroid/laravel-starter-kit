@@ -27,6 +27,18 @@
                         <th class="visible-lg">updated_at</th>
                         <th>actions</th>
                     </tr>
+                    <tr class="grid-filter">
+                        <td>{{ Form::text('id', request('id'), ['class' => 'form-control']) }}</td>
+                        <td>{!! Form::select('category_id', App\ArticleCategory::dropListItems(), request('category_id'), ['class' => 'form-control']) !!}</td>
+                        <td>&nbsp;</td>
+                        <td>&nbsp;</td>
+                        <td>{{ Form::text('title', request('title'), ['class' => 'form-control']) }}</td>
+                        <td>{{ Form::text('slug', request('slug'), ['class' => 'form-control']) }}</td>
+                        <td>{{ Form::text('status', request('status'), ['class' => 'form-control']) }}</td>
+                        <td class="visible-lg">{{ Form::text('created_at', request('created_at'), ['class' => 'form-control']) }}</td>
+                        <td class="visible-lg">{{ Form::text('updated_at', request('updated_at'), ['class' => 'form-control']) }}</td>
+                        <td>&nbsp;</td>
+                    </tr>
                     </thead>
                     <tbody>
                     @foreach ($articles as $article)
