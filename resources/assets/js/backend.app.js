@@ -33,3 +33,12 @@ Vue.component(
 const app = new Vue({
     el: '.content'
 });
+
+//trigger filter
+$('.grid-filter .form-control').on('keydown change', function (e) {
+   if(e.type == 'change' || e.keyCode == 13) {
+       var query = $(this).parents('.grid-filter').find('.form-control').serialize();
+       var url = location.pathname + '?' + query;
+       location.href = url;
+   }
+});

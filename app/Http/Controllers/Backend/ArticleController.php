@@ -18,7 +18,7 @@ class ArticleController extends Controller
      */
     public function index(Request $request)
     {
-        $articles = Article::withTrashed()->paginate(10);
+        $articles = Article::search($request->all())->withTrashed()->paginate(10);
 
         $data = ['articles' => $articles];
         return view('backend.article.index', $data);
