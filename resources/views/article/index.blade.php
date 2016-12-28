@@ -12,6 +12,9 @@
                             <div class="panel-heading">
                                 <i class="fa fa-book"></i>
                                 <a href="/article/view/{{ $article->id }}"> {{ $article->title }} </a>
+                                <div class="pull-right">
+                                    <span class="badge">{{ $article->comments_count }}</span> comments
+                                </div>
                             </div>
 
                             <div class="panel-body">
