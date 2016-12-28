@@ -2,7 +2,10 @@
 
 @section('after-styles')
     {!! Html::style('https://imperavi.com/assets/css/redactor.css') !!}
-    <style>.article-content img{max-width: 100%;padding:10px;}</style>
+    <style>
+        .article-content img{max-width: 100%;padding:10px;}
+        .article-comments .comment{padding:5px 20px;}
+    </style>
 @stop
 
 @section('content')
@@ -23,19 +26,33 @@
                             Post by <a href="{{ route('article.index', ['user_id' => $article->user_id]) }}">{{ $article->author->name }}</a> in <a href="{{ route('article.index', ['category_id' => $article->category_id]) }}">{{ $article->category->label }}</a> at {{ $article->created_at }} | {{ 345 }} views
                         </div>
                         <div>
-                        <div>
-                            @if ($article->icon_image)
                             <div>
-                                <a href="#" style="float: right;">
-                                    <img style="width:100px;height:100px;" src="{{ asset('uploads/icons/'.$article->icon_image) }}" alt="icon">
-                                </a>
+                                @if ($article->icon_image)
+                                <div>
+                                    <a href="#" style="float: right;">
+                                        <img style="width:100px;height:100px;" src="{{ asset('uploads/icons/'.$article->icon_image) }}" alt="icon">
+                                    </a>
+                                </div>
+                                @endif
+                                <blockquote>{{$article->excerpt}}</blockquote>
                             </div>
-                            @endif
-                            <blockquote>{{$article->excerpt}}</blockquote>
-                        </div>
                             <hr>
-                        <div class="article-content">{!! $article->content !!}</div>
-                        <div class="pull-right">{{ $article->created_at->diffForHumans() }}</div>
+                            <div class="article-content">{!! $article->content !!}</div>
+                            <div class="pull-right">{{ $article->created_at->diffForHumans() }}</div>
+                        </div>
+                        <hr>
+                        <div class="article-comments">
+                                <div>Comments</div>
+                                @foreach ($comments as $comment)
+                                <div class="row comment">
+                                    <div>{{ $comment->user->name }} at {{ $comment->created_at->diffForHumans() }}</div>
+                                    <blockquote>
+                                        {{ $comment->content }}
+                                    </blockquote>
+                                </div>
+                                @endforeach
+                            <div class="text-center">{{ $comments->render() }}</div>
+                        </div>
                     </div>
                 </div><!-- panel -->
 

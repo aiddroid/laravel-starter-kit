@@ -44,6 +44,15 @@ class Article extends Model
         return $this->hasOne(ArticleCategory::class, 'id', 'category_id');
     }
 
+    /**
+     * Comments of article
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function comments()
+    {
+        return $this->hasMany(Comment::class, 'parent_id', 'id');
+    }
+
 //    /**
 //     * @param $query
 //     * @param array $attributes

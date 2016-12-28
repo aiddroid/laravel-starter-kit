@@ -17,6 +17,7 @@ class UserTableSeeder extends Seeder
         //fill fake users
         $users = [
             ['name' => 'admin', 'email' => 'admin@gmail.com', 'password' => bcrypt(123456), 'created_at' => Carbon::now()],
+            ['name' => 'user', 'email' => 'user@gmail.com', 'password' => bcrypt(123456), 'created_at' => Carbon::now()],
         ];
         DB::table('users')->insert($users);
     }

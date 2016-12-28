@@ -18,12 +18,14 @@ class ArticleController extends Controller
         $userId = $request->get('user_id');
         $categoryId = $request->get('category_id');
         if ($userId) {
-            $articles = Article::where('user_id', $userId)->paginate();
+            $articles = Article::where('user_id', $userId)->withCount('comments');
         } elseif ($categoryId) {
-            $articles = Article::where('category_id', $categoryId)->paginate();
+            $articles = Article::where('category_id', $categoryId)->withCount('comments');
         } else {
-            $articles = Article::paginate();
+            $articles = Article::withCount('comments');
         }
+
+        $articles = $articles->paginate();
 
         $data = ['articles' => $articles];
         return view('article.index', $data);
@@ -37,9 +39,10 @@ class ArticleController extends Controller
      */
     public function view(Request $request, $id)
     {
-        $article = Article::find($id);
+        $article = Article::findOrFail($id);
+        $comments = $article->comments()->latest()->paginate(5);
 
-        $data = ['article' => $article];
+        $data = ['article' => $article, 'comments' => $comments];
         return view('article.view', $data);
     }
 }
