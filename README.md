@@ -28,6 +28,7 @@ Please, consider helping project via [contributions](https://github.com/aiddroid
 - Nginx config example
 - JWT auth
 - OAuth
+- RBAC
 
 
 ## INSTALLATION
@@ -58,6 +59,7 @@ vim .env
 ```
 php artisan migrate
 php artisan db:seed
+php artisan voyager:admin admin@gmail.com
 ```
 5.set up your vhost
 ```
