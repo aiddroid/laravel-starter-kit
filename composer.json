@@ -11,7 +11,8 @@
         "intervention/image": "^2.3",
         "tymon/jwt-auth": "^0.5.9",
         "barryvdh/laravel-cors": "^0.8.2",
-        "laravel/passport": "^1.0"
+        "laravel/passport": "^1.0",
+        "tcg/voyager": "^0.10.7"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",

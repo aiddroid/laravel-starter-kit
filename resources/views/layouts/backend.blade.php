@@ -274,6 +274,7 @@ desired effect
             <!-- Sidebar Menu -->
             <ul class="sidebar-menu">
                 <li class="header">HEADER</li>
+                <li><a href="{{ url('/admin') }}"><i class="fa fa-asterisk"></i> <span>Voyager</span></a></li>
                 <li class="treeview">
                     <a href="#">
                         <i class="fa fa-book"></i>

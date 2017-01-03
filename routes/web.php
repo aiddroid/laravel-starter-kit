@@ -52,3 +52,7 @@ Route::group(['prefix' => 'backend', 'namespace' => 'Backend'], function () {
     Route::get('/user/index', 'UserController@index')->name('backend.user.index');
     Route::get('/oauth/index', 'OAuthController@index')->name('backend.oauth.index');
 });
+
+Route::group(['prefix' => 'admin'], function () {
+    Voyager::routes();
+});
