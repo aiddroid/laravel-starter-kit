@@ -51,6 +51,10 @@ Route::group(['prefix' => 'backend', 'namespace' => 'Backend'], function () {
     //user
     Route::get('/user/index', 'UserController@index')->name('backend.user.index');
     Route::get('/oauth/index', 'OAuthController@index')->name('backend.oauth.index');
+
+    //notificaton
+    Route::get('/notification/mine', 'NotificationController@mine')->name('backend.notification.mine');
+    Route::get('/notification/markall', 'NotificationController@markall')->name('backend.notification.markall');
 });
 
 Route::group(['prefix' => 'admin'], function () {

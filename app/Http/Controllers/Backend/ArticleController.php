@@ -2,10 +2,12 @@
 
 namespace App\Http\Controllers\Backend;
 
+use App\Notifications\ArticleCreatedNotification;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Backend\Controller;
 use App\Article;
 use Illuminate\Http\Response;
+use Illuminate\Support\Facades\Auth;
 use Intervention\Image\ImageManagerStatic as Image;
 
 class ArticleController extends Controller
@@ -96,7 +98,9 @@ class ArticleController extends Controller
      */
     public function store(Request $request)
     {
-        Article::create($request->all());
+        if ($article = Article::create($request->all())) {
+            Auth::user()->notify(new ArticleCreatedNotification($article));
+        }
 
         return redirect('backend/article/index');
     }

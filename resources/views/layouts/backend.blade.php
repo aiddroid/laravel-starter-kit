@@ -93,9 +93,9 @@ desired effect
                     <!-- Messages: style can be found in dropdown.less-->
                     <li class="dropdown messages-menu">
                         <!-- Menu toggle button -->
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                        <a href="{{route('backend.notification.mine')}}" class="dropdown-toggle" data-toggle="dropdown">
                             <i class="fa fa-envelope-o"></i>
-                            <span class="label label-success">4</span>
+                            <span class="label label-success">{{ Auth::user()->unreadNotifications->count() }}</span>
                         </a>
                         <ul class="dropdown-menu">
                             <li class="header">You have 4 messages</li>
@@ -205,25 +205,25 @@ desired effect
                                 </p>
                             </li>
                             <!-- Menu Body -->
-                            {{--<li class="user-body">--}}
-                                {{--<div class="row">--}}
-                                    {{--<div class="col-xs-4 text-center">--}}
-                                        {{--<a href="#">Followers</a>--}}
-                                    {{--</div>--}}
-                                    {{--<div class="col-xs-4 text-center">--}}
-                                        {{--<a href="#">Sales</a>--}}
-                                    {{--</div>--}}
-                                    {{--<div class="col-xs-4 text-center">--}}
-                                        {{--<a href="#">Friends</a>--}}
-                                    {{--</div>--}}
-                                {{--</div>--}}
-                                {{--<!-- /.row -->--}}
-                            {{--</li>--}}
+                            <li class="user-body">
+                                <div class="row">
+                                    <div class="col-xs-4 text-center">
+                                        <a href="#">Followers</a>
+                                    </div>
+                                    <div class="col-xs-4 text-center">
+                                        <a href="#">Sales</a>
+                                    </div>
+                                    <div class="col-xs-4 text-center">
+                                        <a href="#">Friends</a>
+                                    </div>
+                                </div>
+                                <!-- /.row -->
+                            </li>
                             <!-- Menu Footer-->
                             <li class="user-footer">
-                                {{--<div class="pull-left">--}}
-                                    {{--<a href="#" class="btn btn-default btn-flat">Profile</a>--}}
-                                {{--</div>--}}
+                                <div class="pull-left">
+                                    <a href="#" class="btn btn-default btn-flat">Profile</a>
+                                </div>
                                 <div class="pull-right">
                                     <a href="{{ url('/logout') }}" class="btn btn-default btn-flat" onclick="event.preventDefault();document.getElementById('logout-form').submit();">Sign out</a>
                                     <form id="logout-form" action="{{ url('/logout') }}" method="POST" style="display: none;">
