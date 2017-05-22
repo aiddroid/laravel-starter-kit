@@ -12,7 +12,8 @@
         "tymon/jwt-auth": "^0.5.9",
         "barryvdh/laravel-cors": "^0.8.2",
         "laravel/passport": "^1.0",
-        "tcg/voyager": "^0.10.7"
+        "tcg/voyager": "^0.10.7",
+        "predis/predis": "~1.0"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",

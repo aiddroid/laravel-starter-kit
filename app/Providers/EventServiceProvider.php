@@ -4,6 +4,11 @@ namespace App\Providers;
 
 use Illuminate\Support\Facades\Event;
 use Illuminate\Foundation\Support\Providers\EventServiceProvider as ServiceProvider;
+use Illuminate\Auth\Events\Login;
+use Illuminate\Auth\Events\Logout;
+
+use App\Events\Listeners\CreateJwt;
+use App\Events\Listeners\ClearJwt;
 
 class EventServiceProvider extends ServiceProvider
 {
@@ -16,6 +21,12 @@ class EventServiceProvider extends ServiceProvider
         'App\Events\SomeEvent' => [
             'App\Listeners\EventListener',
         ],
+        Login::class => [
+            'App\Events\Listeners\CreateJwt'
+        ],
+        Logout::class => [
+            'App\Events\Listeners\ClearJwt'
+        ]
     ];
 
     /**

@@ -38,8 +38,22 @@ Vue.http.interceptors.push((request, next) => {
  */
 
 // import Echo from "laravel-echo"
-
-// window.Echo = new Echo({
+//
+// window.ECHO = new Echo({
 //     broadcaster: 'pusher',
 //     key: 'your-pusher-key'
 // });
+
+//websocket
+window.Socket = io.connect('', {
+    query: 'jwt=' + Laravel.jwt,
+    transports: ['websocket', 'polling']
+});
+
+Socket.on('article:App\\Events\\ArticleCreated', function (data) {
+    var article = data.article;
+    $('.alert a').html(article.title);
+    $('.alert').removeClass('hide');
+    setTimeout("$('.alert').addClass('hide')", 5000);
+    console.log(data);
+});

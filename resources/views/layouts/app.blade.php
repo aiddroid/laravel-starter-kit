@@ -8,6 +8,9 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
+    <!-- JWT -->
+    <meta name="jwt" content="{{ Session::get('jwt') }}">
+
     <title>{{ config('app.name', 'Laravel') }}</title>
 
     <!-- Styles -->
@@ -18,6 +21,7 @@
     <script>
         window.Laravel = <?php echo json_encode([
             'csrfToken' => csrf_token(),
+            'jwt' => Session::get('jwt'),
         ]); ?>
     </script>
 </head>
@@ -80,10 +84,15 @@
             </div>
         </nav>
 
+        <div class="alert alert-success col-md-8 col-md-offset-2 hide" role="alert">
+            <strong>New Article!</strong>
+            <a href="#" class="alert-link"></a>
+        </div>
         @yield('content')
     </div>
 
     <!-- Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/1.7.3/socket.io.min.js"></script>
     <script src="/js/app.js"></script>
     @yield('after-scripts')
 </body>
